@@ -1,6 +1,6 @@
 # Using Node with Express and MySQL
 
-## Road Map
+## Roadmap
 
 1. Set Up and Installation
 2. Create a New Node Project
