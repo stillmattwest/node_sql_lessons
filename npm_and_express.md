@@ -9,6 +9,7 @@
 5. Nodemon
 6. Serving Static Files
 7. Middleware
+8. Summary
 
 ## NPM and NPM Init
 
