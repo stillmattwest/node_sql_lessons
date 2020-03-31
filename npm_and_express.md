@@ -3,7 +3,7 @@
 ## Roadmap
 
 1. NPM and NPM Init
-2. Adding Express
+2. Add Express
 3. Initialize Git
 4. Using Express
 5. Nodemon
@@ -13,7 +13,7 @@
 
 ## NPM and NPM Init
 
-In a previous lesson we learned how to create a (very) basic web server using nothing but Node. Now, we're going to bring in a couple of Node _modules_, which you'll remember are basically JavaScript libraries that add functionality to our application.
+In a previous lesson we learned how to create a (very) basic web server using nothing but Node and its built-in http module. Now, we're going to bring in a couple of outside modules, which you'll remember are basically JavaScript libraries that add functionality to our application.
 
 The most popular module for adding web server functionality to Node apps is **Express.js**. We're going to bring that in but before we can do that we need to learn a bit about the **Node Package Manager** or NPM.
 
@@ -27,6 +27,8 @@ Modules installed via NPM live in a directory called **node_modules**. Because t
 
 Node Modules that are required for your application to run are referred to as _dependencies_. A reference to these dependencies is kept in a file called **package.json**. The modules referenced there can be installed easily via the **npm install** command.
 
+What _npm install_ does it to look at your package.json and read the references to the dependencies you need. It then goes out to the Internet automatically and downloads and installs everything.
+
 This is a great system that allows node applications to be highly sharable and version-control friendly. Before we can use this system, we'll need to get our application set up for it with the **npm init** command.
 
 Make sure you're in your MyBlog directory and run the following command in your terminal:
@@ -39,7 +41,7 @@ This will initialize package.json in your system. The utility will prompt you wi
 
 You should now see a file called **package.json** in your directory. Go ahead and open it up and look around but don't change anything.
 
-## Adding Express
+## Add Express
 
 We can now add Express to our application. In your terminal, run the following command:
 
@@ -51,7 +53,7 @@ This command is pretty self explanatory. It will cause npm to find the express m
 
 After you run the command you should see a new folder in your application: **node_modules**.
 
-Go ahead and open up node*modules and look around. You'll notice that there are a \_lot* of files in there. Each of these folders contains a small application that is a _dependency_ of Express, which is in turn a dependency of our application (or at least it will be very soon.)
+Go ahead and open up node modules and look around. You'll notice that there are a _lot_ of files in there. Each of these folders contains a small application that is a _dependency_ of Express, which is in turn a dependency of our application (or at least it will be very soon.)
 
 If you look in your package.json you will see that it has changed, as well. Express is now listed as a dependency.
 
@@ -79,7 +81,7 @@ app.get("/", (req, res) => res.send("Hello Express!"));
 app.listen(port, () => console.log(`listening on port ${port}.`));
 ```
 
-Go ahead and restart your node application and direct your browser to _http://localhost:3000_ again. You should see the new output.
+Go ahead and restart your node application and direct your browser to http://localhost:3000 again. You should see the new output.
 
 Obviously, this application has similar functionality to our vanilla Node version but let's take a look at it anyway.
 
@@ -128,9 +130,9 @@ Open your package.json and edit the "scripts" portion like so:
   },
 ```
 
-You'll notice that your application detects this change and automatically stops and restarts. Thanks, nodemon! However, let's go ahead and manually stop it with **ctrl-c** and then enter the command _npm start_ in the terminal. Your application should start under nodemon once again.
+You'll notice that your application detects this change and automatically stops and restarts. Thanks, nodemon! However, let's go ahead and manually stop it with **ctrl-c** and then enter the command _npm start_ in the terminal. Your application should start under nodemon once again. **npm start** will be the best way to start your application from now on.
 
-It is possible to store and run a wide variety of script commands in package.json in this way.
+It is possible to store and run a wide variety of script commands in package.json in similar fashion.
 
 ## Serving Static Files
 
@@ -251,7 +253,7 @@ Try refreshing your browser. Nice! Our application is starting to seem more and 
 
 So far, our app can listen for HTTP requests, serve static files, and send basic responses to two different routes. All of that functionality is thanks to the power of _middleware_.
 
-Express is a self-described "minimalist" application and by itself it has, well, minimal functionality. An Express application is basically a big stack of middleware with some basic web services to tie is all together.
+Express is a self-described "minimalist" application and by itself it has, well, minimal functionality. An Express application is basically a big stack of middleware with some basic web services to tie it all together.
 
 But what is middleware? Middleware is a stack of applications that sit between the _client request_ and the _server response._ Express allows middleware to do a few different things:
 
